@@ -4,7 +4,6 @@ app = Flask(__name__)
 
 
 
-
 @app.route("/")
 # décorateur : mis avant une fonction et permet de'enrichir la fonction se situant en dessous avec d'autres fonction
 # dans ce cas ci, cela veut dire que si l'utilisateur entre l'adresse "/", alors le message ci dessous s'affichera
@@ -30,9 +29,9 @@ def products(productid):
 
     return render_template("produit.html", product=product_from_db, store=store)
     
-
-
-
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
 
 # ça va indiquer à flask quelle est la base du fichier
 if __name__ == "__main__":

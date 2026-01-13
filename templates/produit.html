@@ -8,16 +8,16 @@
       <p class="product-price">{{"%.2f" | format(product.price)}}</p>
       <p class="product-description">{{product.description}}</p>
 
-      <div class="product-specs">
-        <h3>Caractéristiques :</h3>
-        <ul>
-          <li>✓ Matériau : Premium</li>
-          <li>✓ Dimensions : 30 x 20 x 10 cm</li>
-          <li>✓ Poids : 500g</li>
-          <li>✓ Garantie : 2 ans</li>
-          <li>✓ Disponible à {{store |capitalize}}</li>
-        </ul>
-      </div>
+      {% if store == 'online' %}
+      <p>Commande disponible en ligne</p>
+      {% elif store == 'metz' %}
+      <p>Commande disponible à Metz ! </p>
+      {% else %}
+      <p> Boutique : {{ store }}</p>
+      {% endif %}
+
+
+      {% include "caracteristiques.html" %}
 
       <button class="btn-buy">Ajouter au panier</button>
 {% endblock %}
