@@ -29,8 +29,10 @@ def products(productid):
 
     return render_template("produit.html", product=product_from_db, store=store)
     
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
+    if request.method == "POST":
+        pass
     return render_template("contact.html")
 
 # ça va indiquer à flask quelle est la base du fichier
