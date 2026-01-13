@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
 
 app = Flask(__name__) 
 
@@ -32,7 +32,9 @@ def products(productid):
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
-        pass
+        # Traitement des données
+        return redirect("/contact")
+    
     return render_template("contact.html")
 
 # ça va indiquer à flask quelle est la base du fichier
